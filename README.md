@@ -1,6 +1,6 @@
 Example codes in `bin/`,
 
-### 
+### Create Range
 ```dart
   #1
   extension Range on int {
@@ -8,13 +8,15 @@ Example codes in `bin/`,
             [for (int i = this; i <= max; i += step) i];
     }
 ```
-
+### List to Map
 ```dart
   #2
   extension ToMap<T> on List<T> {
     Map<T, E> toMap<E>(E Function(T) f) => {for (var key in this) key: f(key)};
   }
 ```
+
+### List to HashSet
 
 ```dart
   #3
