@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+/// [abstract] [UtilList] [Generic Type]<[<T>]>
 abstract class UtilList {
   static List<T> addedList<T>(List<T> list) {
     final temp = <T>[];
@@ -25,7 +26,8 @@ extension RangeAdded<T> on List<T> {
       ];
 }
 
-extension Rnage on int {
+/// [extension] Range? => [InclusiveRange]
+extension Range on int {
   List<int> toIncluding(int max, {int step = 1}) =>
       [for (int i = this; i <= max; i += step) i];
 }
@@ -33,10 +35,11 @@ extension Rnage on int {
 class InclusiveRange with IterableMixin<int> {
   late Iterable<int> _value;
   InclusiveRange(int first, [int? second, int? thrid]) {
-    if ((second ?? thrid) == null)
+    if ((second ?? thrid) == null) {
       _value = 0.toIncluding(first);
-    else if (second != null)
+    } else if (second != null) {
       _value = first.toIncluding(second, step: thrid ?? 1);
+    }
   }
   @override
   Iterator<int> get iterator => _value.iterator;
@@ -50,7 +53,7 @@ void main(List<String> args) {
   // print(list);
   // print(list2);
 
-  /// [Extension]
+  /// [range]
   var range = [12, 12, 33, 12, 3, 3, 2].added();
   print(range);
 
